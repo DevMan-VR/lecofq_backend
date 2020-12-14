@@ -4,8 +4,9 @@ const Hora = require('../horas/hora.model')
 module.exports = {
 
     async createCita(data) {
-        await Hora.findOneAndUpdate({ _id: data.idHora }, { idCita: data._id }, { new: true });
-        return await Cita.create(data);
+        var cita = await Cita.create(data);
+        await Hora.findOneAndUpdate({ _id: cita.idHora }, { idCita: cita._id }, { new: true });
+        
     },
 
     async updateCita(id, data) {
