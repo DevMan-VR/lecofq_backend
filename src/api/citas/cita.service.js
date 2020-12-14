@@ -1,8 +1,10 @@
 const Cita = require('./cita.model'); // cita model
+const Hora = require('../horas/hora.model')
 
 module.exports = {
 
     async createCita(data) {
+        await Hora.findOneAndUpdate({ _id: data.idHora }, { idCita: data._id }, { new: true });
         return await Cita.create(data);
     },
 
