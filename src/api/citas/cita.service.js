@@ -21,7 +21,6 @@ module.exports = {
     async deleteCita(id) {
         return await Cita.deleteOne({ _id: id });
     },
-
     async getCitas() {
         return await Cita.find({});
     },
