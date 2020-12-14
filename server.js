@@ -2,13 +2,15 @@
 const express = require('express');
 const app = express();
 
+const cors = require("cors");
+
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT
 //const cors = require('cors');
 
 //api
-//app.use(cors());
+app.use(cors());
 app.get('/', (req, res) => {
     res.send("API LECOFQ UP!");
 });
@@ -34,6 +36,8 @@ const horarioRouter = require('./src/api/horario/horario.router');
 const ejercicioRouter = require('./src/api/ejercicio/ejercicio.router');
 const pacienteRouter = require('./src/api/paciente/paciente.router');
 const fichaPacienteRouter = require('./src/api/fichaPaciente/fichaPaciente.router');
+const userRouter = require("./src/api/users/pacientes/user.router");
+const funcionarioRouter = require("./src/api/users/funcionarios/Funcionario.router");
 
 app.use('/areas', areaRouter);
 app.use('/centros', centroRouter);
@@ -48,6 +52,8 @@ app.use('/ejercicio',ejercicioRouter);
 app.use('/paciente',pacienteRouter);
 app.use('/fichaPaciente', fichaPacienteRouter);
 
+app.use("/users", userRouter);
+app.use("/funcionarios", funcionarioRouter);
 
 router = express.Router();
 // will redirect all the non-api routes to react frontend
