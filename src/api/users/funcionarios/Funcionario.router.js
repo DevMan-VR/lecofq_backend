@@ -4,6 +4,7 @@ const funcionarioController = require("./Funcionario.controller");
 const auth = require("../middleware/Auth");
 const cors = require("cors");
 
+funcionarioRouter.get("/check",funcionarioController.check);
 
 funcionarioRouter.post("/createAdmin", cors(),funcionarioController.createAdmin);
 

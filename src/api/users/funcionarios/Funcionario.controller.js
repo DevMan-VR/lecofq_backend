@@ -13,6 +13,17 @@ function generateToken(user) {
 }
 
 module.exports = {
+  async check(req, res) {
+    try {
+      return res.json({
+        status: "success",
+        data: "ok",
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  },
+
   async createAdmin(req, res) {
     try {
       const admin = await Funcionario.findOne({email: "admin"}).exec();
@@ -182,6 +193,7 @@ module.exports = {
       console.error(e);
     }
   },
+
   async deleteFuncionario(req, res) {
     try {
       const user = await Funcionario.findOne({_id : new mongoose.mongo.ObjectID(req.params._id)}).exec();
