@@ -26,3 +26,5 @@ module.exports = {
     },
 
 }
+
+//Hacer un update de hora (para definir idCita null) cuando se modifique la hora en una cita
