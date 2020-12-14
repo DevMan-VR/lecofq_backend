@@ -7,6 +7,7 @@ module.exports = {
     },
 
     async updateCita(id, data) {
+        await Hora.findOneAndUpdate({ idCita: id }, { idCita: null }, { new: true });
         return await Cita.findOneAndUpdate(
             { _id: id },
             data,
