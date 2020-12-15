@@ -1,12 +1,17 @@
 const Cita = require('./cita.model'); // cita model
+const Hora = require('../horas/hora.model')
 
 module.exports = {
 
     async createCita(data) {
-        return await Cita.create(data);
+        var cita = await Cita.create(data);
+        await Hora.findOneAndUpdate({ _id: cita.idHora }, { idCita: cita._id }, { new: true });
+        return cita;
     },
 
     async updateCita(id, data) {
+        await Hora.findOneAndUpdate({ idCita: id }, { idCita: null }, { new: true });
+        await Hora.findOneAndUpdate({ _id: data.idHora }, { idCita: id }, { new: true });
         return await Cita.findOneAndUpdate(
             { _id: id },
             data,
@@ -26,3 +31,5 @@ module.exports = {
     },
 
 }
+
+//Hacer un update de hora (para definir idCita null) cuando se modifique la hora en una cita
