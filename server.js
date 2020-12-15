@@ -5,10 +5,10 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT
-//const cors = require('cors');
+const cors = require('cors');
 
 //api
-//app.use(cors());
+app.use(cors());
 app.get('/', (req, res) => {
     res.send("API LECOFQ UP!");
 });
@@ -36,6 +36,14 @@ const pacienteRouter = require('./src/api/paciente/paciente.router');
 const fichaPacienteRouter = require('./src/api/fichaPaciente/fichaPaciente.router');
 const fichaNutricionistaRouter = require('./src/api/fichaNutricionista/fichaNutricionista.router');
 const fichaPsicologoRouter = require('./src/api/fichaPsicologo/fichaPsicologo.router');
+const userRouter = require("./src/api/users/pacientes/user.router");
+const funcionarioRouter = require("./src/api/users/funcionarios/Funcionario.router");
+const tallerRouter = require('./src/api/talleres/routers/taller.router');
+const alumnoRouter = require('./src/api/talleres/routers/alumno.router');
+const profesorRouter = require('./src/api/talleres/routers/profesor.router');
+const sobreCupoRouter = require('./src/api/talleres/routers/sobreCupo.router');
+const imagenTallerRouter = require('./src/api/talleres/routers/imagenTaller.router');
+const asistencia = require('./src/api/talleres/routers/asistencia.router');
 
 app.use('/areas', areaRouter);
 app.use('/centros', centroRouter);
@@ -44,6 +52,13 @@ app.use('/citas',citaRouter);
 app.use('/horas',horaRouter);
 app.use('/horario',horarioRouter);
 
+app.use('/taller',tallerRouter);
+app.use('/alumno',alumnoRouter);
+app.use('/profesor',profesorRouter);
+app.use('/sobreCupo',sobreCupoRouter);
+app.use('/imagenRouter',imagenTallerRouter);
+app.use('/asistencia',asistencia);
+
 app.use('/especialistas',especialistaRouter);
 app.use('/rutina',rutinaRouter)
 app.use('/ejercicio',ejercicioRouter);
@@ -51,6 +66,9 @@ app.use('/paciente',pacienteRouter);
 app.use('/fichaPaciente', fichaPacienteRouter);
 app.use('/fichaNutricionista', fichaNutricionistaRouter);
 app.use('/fichaPsicologo', fichaPsicologoRouter);
+
+app.use("/users", userRouter);
+app.use("/funcionarios", funcionarioRouter);
 
 
 router = express.Router();
