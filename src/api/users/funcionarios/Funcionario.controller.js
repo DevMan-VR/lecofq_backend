@@ -127,6 +127,10 @@ module.exports = {
             path="/Grupo3/VistaAdministracion"
           }
 
+          if(req.body.Rol === "Secretario"){
+            path="/Grupo4/secretario/administrar/mostrarcitas"
+          }
+
           res.json({
             token: tokensito,
             path: path
