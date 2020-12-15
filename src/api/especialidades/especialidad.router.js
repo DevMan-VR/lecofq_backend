@@ -1,6 +1,7 @@
 const especialidadController = require('./especialidad.controller');
 
 const express = require('express');
+const especialistaController = require('../especialistas/especialista.controller');
 const especialidadRouter = express.Router();
 
 //Create Especialidad
@@ -27,5 +28,11 @@ especialidadRouter.get(
 especialidadRouter.get(
     '/:id',
     especialidadController.getEspecialidad);
+
+//Get All horas de una especialidad
+especialidadRouter.get(
+    '/:id/horas',
+    especialidadController.getHorasEspecialidad
+);
 
 module.exports = especialidadRouter;
