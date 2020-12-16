@@ -35,7 +35,11 @@ const especialistaRouter = require('./src/api/especialistas/especialista.router'
 const horarioRouter = require('./src/api/horario/horario.router');
 const ejercicioRouter = require('./src/api/ejercicio/ejercicio.router');
 const pacienteRouter = require('./src/api/paciente/paciente.router');
+
 const fichaPacienteRouter = require('./src/api/fichaPaciente/fichaPaciente.router');
+const fichaNutricionistaRouter = require('./src/api/fichaNutricionista/fichaNutricionista.router');
+const fichaPsicologoRouter = require('./src/api/fichaPsicologo/fichaPsicologo.router');
+
 const userRouter = require("./src/api/users/pacientes/user.router");
 const funcionarioRouter = require("./src/api/users/funcionarios/Funcionario.router");
 
@@ -50,7 +54,11 @@ app.use('/especialistas',especialistaRouter);
 app.use('/rutina',rutinaRouter)
 app.use('/ejercicio',ejercicioRouter);
 app.use('/paciente',pacienteRouter);
+
 app.use('/fichaPaciente', fichaPacienteRouter);
+app.use('/fichaNutricionista', fichaNutricionistaRouter);
+app.use('/fichaPsicologo', fichaPsicologoRouter);
+
 
 app.use("/users", userRouter);
 app.use("/funcionarios", funcionarioRouter);

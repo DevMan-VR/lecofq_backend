@@ -6,33 +6,33 @@ const fichaPacienteSchema = new mongoose.Schema({
     },
     rut: {
         type: String,
-        required: true
+        //required: true
     },
     domicilio: {
         type: String,
-        required: true
+        //required: true
     },
     comuna: {
         type: String,
-        required: true
+        //required: true
     },
     estado_civil: {
         type: String,
     },
     prevision: {
         type: String,
-        required: true
+        //required: true
     },
     motivo_consulta: {
         type: String,
     },
     telefono: {
         type: String,
-        required: true
+       // required: true
     },
     fecha_ingreso: {
         type: String,
-        required: true
+        //required: true
     }
 
 
