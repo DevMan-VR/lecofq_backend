@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   },
   Correo: {
     type: String,
-    required: true,
+    //required: true,
   },
   Telefono: {
     type: Number,

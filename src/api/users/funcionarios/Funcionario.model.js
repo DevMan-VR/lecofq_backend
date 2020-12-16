@@ -13,6 +13,15 @@ const funcionarioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  Rol: {
+    type: String,
+    enum : ['Admin','Secretario','Medico','Profesor','indefinido'],
+    default: 'indefinido'
+  },  
+  IdEspecialidad: {
+    type: String,
+    required: false,
+  },
 });
 
 const Funcionario = mongoose.model("Funcionario", funcionarioSchema);

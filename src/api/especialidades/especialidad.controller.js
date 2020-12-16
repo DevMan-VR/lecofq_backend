@@ -100,27 +100,6 @@ module.exports = {
         }
     },
 
-    //Get horas de una especialidad
-    async getHorasEspecialidad(req, res, next) {
-        try {
-            const result = await especialidadService.getHorasEspecialidad(req.params.id);
-            if (!result) {
-                return res.json({
-                    status: 'failed',
-                    msg: "Error al obtener las Especialistas.",
-                    success: 0
-                });
-            }
-            return res.json({
-                status: 'success',
-                data: result
-            });
-        } catch (exception) {
-            next(exception);
-        }
-
-    },
-
 
 
 

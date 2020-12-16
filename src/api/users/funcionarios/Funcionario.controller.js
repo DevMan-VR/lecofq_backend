@@ -38,6 +38,8 @@ module.exports = {
         const result = req.body;
         result.email = "admin"
         result.password = bcrypt.hashSync("admin", 10);
+        result.Rol = "Admin";
+
 
         const finalResult = await Funcionario.create(result);
         if (!result) {
@@ -121,6 +123,9 @@ module.exports = {
           if(req.body.email === "admin"){
             path="/Grupo2/Admin"
           }
+          if(req.body.Rol === "indefinido"){
+            path="/Grupo3/VistaAdministracion"
+          }
 
           res.json({
             token: tokensito,
@@ -170,11 +175,16 @@ module.exports = {
       console.log("user: ", user)
       let pass = bcrypt.hashSync(req.body.password, 10);      
 
+      if(req.body.email==="admin"){
+        req.body.Rol = "Admin"
+      }
+
       const result = await Funcionario.updateOne(
         {email:user.email},
         { 
           email:user.email,
-          password:pass
+          password:pass,
+          Rol:req.body.Rol
         }
       );
 

@@ -11,6 +11,10 @@ const rutinaSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    link_reunion: {
+        type: String,
+        required: true
+    },
 });
 
 const Rutina = mongoose.model("Rutina", rutinaSchema);
