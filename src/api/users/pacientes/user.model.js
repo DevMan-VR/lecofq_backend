@@ -15,10 +15,10 @@ const userSchema = new mongoose.Schema({
   },
   Telefono: {
     type: Number,
-    required: true,
   },
   TelefonoApoderado: {
     type: Number,
+    required: true,
   },
   RutSinDV: {
     type: String,
@@ -26,15 +26,12 @@ const userSchema = new mongoose.Schema({
   },
   DigitoVerificador: {
     type: String,
-    required: true,
   },
   Localidad: {
     type: String,
-    required: true,
   },
   Direccion: {
     type: String,
-    required: true,
   },
 });
 
